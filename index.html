@@ -11,11 +11,14 @@
       rel="stylesheet">  
       <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
      <script src="https://kit.fontawesome.com/4d0f2f96cc.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="src/style.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+     <link rel="stylesheet" href="src/style.css">
 </head>
 <body>
     <div class="container">
+              <div class="app-wrapper">
         <div class="weather-app">
+      
     <h1>
        Toronto
     </h1>
@@ -24,14 +27,18 @@
    </h2>
    <div class="row">
        <div class="col-6">
+           
+           <div class="clearfix"> 
            <span>
-         <i  class="fas fa-cloud-rain current-icon"></i>
+         <i  class="fas fa-cloud-rain current-icon "
+         class ="float-left"></i>
            </span>
-           <span>
-               <h3>
-           20°C | °F
+           <div class="float-left">
+         <h3 class = "temperature-display">
+           20 <small> <a href="" id="celsius"> °C </a> | <a href="" id="fahrenheit"> °F</a>    </small>
            </h3>
-           </span>
+       </div>
+           </div>
        </div>
        <div class="col-4">
            <ul>
@@ -62,15 +69,16 @@
            </ul>
 
        </div>
-         <small>
+ 
+   </div>
+    
+  </div>
+        <small >
       <a href="https://github.com/stef1511/vanilla-weather-app" 
       target ="_blank"> Open-source code </a> by Stef Pemberton
 
    </small>
    </div>
-  </div>
- 
-    
     </div>
     <script src="src/app.js"></script>
 </body>

@@ -1,13 +1,7 @@
 body {
     font-family: sans-serif;
 }
-.weather-app {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #b8bfce;
-    border-radius: 10px;
-}
+
 
 h1 {
    
@@ -25,7 +19,7 @@ h2 {
 
 h3 {
    font-family: 'Roboto Mono', monospace;
-font-size: 40px;
+font-size: 50px;
 font-weight: 800;
 
 }
@@ -44,6 +38,7 @@ opacity: 0.5;
 ul {
     list-style-type: none;x
     padding: 0;
+    line-height: 20px;
 }
 
 a {
@@ -53,7 +48,24 @@ a {
 
 .parameters {
   font-family: 'Roboto Mono', monospace;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 600;
   text-align: center;
+}
+.weather-app {
+    padding: 20px;
+    border: 1px solid #b8bfce;
+    border-radius: 10px;
+}
+
+.app-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.temperature-display small {
+    position: relative;
+    bottom:20px;
+    right:22px;
+    font-size: 12px;
 }
