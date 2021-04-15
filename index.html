@@ -18,26 +18,44 @@
     <div class="container">
               <div class="app-wrapper">
         <div class="weather-app">
-      
+          
+            
+            <form id= "search-form" class = "mb-3">
+                  <div class="row">
+              <div class="col">
+                <input type="search" 
+                placeholder= "Enter a city"
+                class = "form-control"
+                autocomplete="off"
+                autosave="off"
+                >
+                </div>
+            <div class="col">
+              
+          <input type="submit" value="Search" class = "btn btn-primary">
+         </div>    
+                    
+      </div>
+        </form>
     <h1 id= "city">
        Toronto
     </h1>
    <h2 >
      Last updated:<span id= "date"> Monday 14:30 </span>
    </h2>
+   <h3 class ="description" id="description">
+    Showers
+   </h3>
    <div class="row">
        <div class="col">
-             <p class ="description" id="description">
-          Showers
-         </p>
-           
-    
-        <img src="" alt="weather" class= "current-icon"id="icon"> 
-        
+       <span class= "current-icon">
+      <img src="" alt="weather"  id="icon"/> 
+       </span>   
          <span class="temperature-display" id="current-temperature"> 20</span> 
           <small class= "temperature-unit"> <a href="" id="celsius"> °C | <a href="" id="fahrenheit"> °F</a>    </small>
 
        </div>
+
        <div class="col">
            <ul>
                <li>
