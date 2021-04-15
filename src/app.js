@@ -10,6 +10,8 @@ function displayTemperature (response) {
      wind.innerHTML = Math.round(response.data.wind.speed);
     let currentTemperature = document.querySelector("#current-temperature");
     currentTemperature.innerHTML = Math.round(response.data.main.temp);
+    let icon = document.querySelector("#icon");
+     icon.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
 }
 
 let apiKey = "02e7aa00c7ab6f28f29780bb9858077e";
@@ -21,7 +23,6 @@ axios.get(apiUrl).then(displayTemperature);
 
 
 let now = new Date();
-
 let hour = now.getHours();
 if (hour < 10) {
   hour = `0${hour}`;
@@ -40,6 +41,5 @@ let days = [
   "Saturday",
 ];
 let day = days[now.getDay()];
-
 let currentDate = document.querySelector("#date");
 currentDate.innerHTML = `${day} ${hour}:${minutes}`;
