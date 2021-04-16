@@ -44,6 +44,7 @@ search("Palm Springs");
 
 function displayTemperature(response) {
   console.log(response.data);
+  celsiusTemp = response.data.main.temp;
   let cityName = document.querySelector("#current-city");
   cityName.innerHTML = response.data.name;
   let skyCondition = document.querySelector("#description");
@@ -61,4 +62,29 @@ function displayTemperature(response) {
   );
 }
 
+function displayFahrenheit(event) {
+    event.preventDefault();
+    let fahrenheitTemp = Math.round((celsiusTemp * 9)/5 + 32);
+   // remove active class from celsius link and make fahrenheit active link
+    celsius.classList.remove("active");
+    fahrenheit.classList.add("active");
 
+    let temperatureDisplay = document.querySelector("#current-temperature");
+    temperatureDisplay.innerHTML = fahrenheitTemp;
+}
+
+let celsiusTemp = null;
+
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", displayFahrenheit)
+
+function displayCelsius (event) {
+    event.preventDefault();
+    // make celsius active class and fahrenheit link non-active
+    celsius.classList.add("active");
+    fahrenheit.classList.remove("active");
+   let temperatureDisplay = document.querySelector("#current-temperature");
+   temperatureDisplay.innerHTML= Math.round(celsiusTemp);
+}
+let celsius = document.querySelector("#celsius");
+celsius.addEventListener("click", displayCelsius);

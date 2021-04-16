@@ -46,7 +46,7 @@ a {
 
 .parameters {
   font-family: 'Roboto Mono', monospace;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   text-align: center;
 }
@@ -58,15 +58,15 @@ a {
 }
 
 .app-wrapper {
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
 .temperature-unit {
     position: relative;
     bottom:20px;
-    right: 8px;
-    font-size: 12px;
+    right: 6px;
+    font-size: 14px;
 }
 .description {
     font-size: 20px;
@@ -79,3 +79,8 @@ a {
     height: 70px;
 }
 
+.temperature-unit .active {
+    color: black;
+    text-decoration: none;
+    cursor: default;
+}
