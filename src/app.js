@@ -55,6 +55,8 @@ function displayTemperature(response) {
   wind.innerHTML = Math.round(response.data.wind.speed);
   let currentTemperature = document.querySelector("#current-temperature");
   currentTemperature.innerHTML = Math.round(response.data.main.temp);
+  let pressure = document.querySelector("#pressure");
+  pressure.innerHTML = `${response.data.main.pressure} mb`;
   let icon = document.querySelector("#icon");
   icon.setAttribute(
     "src",
