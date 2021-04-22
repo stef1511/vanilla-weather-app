@@ -42,6 +42,37 @@ form.addEventListener("submit", handleSubmit);
 
 search("Palm Springs");
 
+function displayForecast () {
+    let forecastElement = document.querySelector("#forecast");
+   
+    let days = ["Fri", "Sat", "Sun", "Mon"];
+      let forecastHTML = `<div class="row">`;
+    days.forEach(function(day){
+        
+
+    forecastHTML = forecastHTML + `
+            <div class="col-2">
+                <span class= "forecast-day">
+                ${day}
+                </span>
+              <img src="https://openweathermap.org/img/wn/01d@2x.png" 
+              alt="icon"
+              width="48">
+             <span class ="forecast-max">
+                 15° 
+                 </span> 
+                 <span class ="forecast-min">
+                   12°
+                 </span>
+        </div>`;
+
+    });
+       
+        forecastHTML = forecastHTML + `</div>`;
+        forecastElement.innerHTML = forecastHTML;
+
+}
+
 function displayTemperature(response) {
   console.log(response.data);
   celsiusTemp = response.data.main.temp;
@@ -63,6 +94,8 @@ function displayTemperature(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 }
+
+displayForecast();
 
 function displayFahrenheit(event) {
     event.preventDefault();

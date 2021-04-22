@@ -92,7 +92,7 @@ a {
     text-align: center;
 }
 .forecast-day {
-    color: #086ec5;
+    opacity: 0.6;
   
     font-size: 18px;
 }
