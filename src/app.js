@@ -43,43 +43,52 @@ form.addEventListener("submit", handleSubmit);
 
 search("Palm Springs");
 
-function displayForecast () { 
+function formatDay (timestamp) {
+  let date = new Date (timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
 
+}
+function displayForecast (response) { 
+    let forecast= response.data.daily;
     let forecastElement = document.querySelector("#forecast");
-   
-    let days = ["Fri", "Sat", "Sun", "Mon"];
+  
       let forecastHTML = `<div class="row">`;
-    days.forEach(function(day){
-        
+    forecast.forEach(function(forecastDay, index){
+        if (index < 5) {
     forecastHTML = forecastHTML + `
             <div class="col-2">
                 <span class= "forecast-day">
-                ${day}
+                ${formatDay}${forecastDay.dt};
                 </span>
-              <img src="https://openweathermap.org/img/wn/01d@2x.png" 
+              <img src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" 
               alt="icon"
               width="48">
              <span class ="forecast-max">
-                 15° 
+                ${Math.round(forecastDay.temp.max)}°;
                  </span> 
                  <span class ="forecast-min">
-                   12°
+                ${Math.round(forecastDay.temp.min)}°;
                  </span>
         </div>`;
 
     });
+  }
     
         forecastHTML = forecastHTML + `</div>`;
         forecastElement.innerHTML = forecastHTML;
+  
 }
-displayForecast();
+
 
 function getForecast(coordinates) {
     console.log(coordinates);
     let apiKey = "02e7aa00c7ab6f28f29780bb9858077e";
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}
-    &lon=${coordinates.lon}&appid=${apiKey}`;
+    &lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
     console.log(apiUrl);
+    axios.get(apiUrl).then(displayForecast);
 }
 function displayTemperature(response) {
   console.log(response.data);
